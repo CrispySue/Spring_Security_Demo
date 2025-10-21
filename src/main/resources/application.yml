@@ -1,0 +1,22 @@
+server:
+  port: ${port}
+spring:
+  application:
+    name: SpringSecurityDemo
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: ${datasource.driver-class-name}
+    url: jdbc:mysql://${datasource.host}:${datasource.port}/${datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${datasource.username}
+    password: ${datasource.password}
+mybatis:
+  mapper-locations: classpath:dao/*.xml
+  type-aliases-package: com.crispysue.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+
+jwt:
+  user-secret-key: crispysue
+  user-ttl: 7200000
+  user-token-name: authentication
